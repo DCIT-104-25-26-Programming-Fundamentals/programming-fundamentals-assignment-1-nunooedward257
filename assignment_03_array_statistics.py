@@ -82,7 +82,7 @@ def main():
     # Get number count from user
     while True:
         try:
-            n = int(input("How many numbers? "))
+            n = int(input("How many numbers?: "))
             if n <= 0:
                 print("Error: N must be a positive integer. Please try again.")
                 continue
@@ -117,5 +117,5 @@ def main():
 
 if __name__ == "__main__":
     main() 
-    
+
 
