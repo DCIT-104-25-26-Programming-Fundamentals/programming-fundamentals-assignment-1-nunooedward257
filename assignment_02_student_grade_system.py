@@ -45,7 +45,7 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-def get_grade(score):  
+def get_grade(score):  #function to determine the letter grade based on the score
     if score < 0 or score > 100:
         return None
     elif score >= 80:
@@ -64,10 +64,10 @@ print("=" * 77)
 print("!! STUDENT GRADE SYSTEM !!")
 print("=" * 77)
 
-score = float(input("Enter student score (0-100): ")) 
+score = float(input("Enter student score (0-100): "))  # take user input
 grade = get_grade(score)
 
 if grade is None:
-    print("Error: Score must be between 0 and 100.")
+    print("Error: Score must be between 0 and 100.")  # print error message if score is invalid
 else:
-    print(f"Grade: {grade}") 
+    print(f"Grade: {grade}")  # print the corresponding letter grade if score is valid
