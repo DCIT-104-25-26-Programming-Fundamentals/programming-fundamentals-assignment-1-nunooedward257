@@ -39,8 +39,8 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-def calculate_sum(numbers):
-    """Calculate the sum of numbers without using built-in sum()."""
+def calculate_sum(numbers):  
+    # Calculate the sum of numbers without using built-in sum().
     total = 0
     for num in numbers:
         total += num
@@ -48,7 +48,7 @@ def calculate_sum(numbers):
 
 
 def calculate_average(numbers):
-    """Calculate the average of numbers."""
+    # Calculate the average of numbers.
     if len(numbers) == 0:
         return 0
     total = calculate_sum(numbers)
@@ -56,7 +56,7 @@ def calculate_average(numbers):
 
 
 def calculate_maximum(numbers):
-    """Find the maximum number without using built-in max()."""
+    # Find the maximum number without using built-in max().
     if len(numbers) == 0:
         return None
     max_num = numbers[0]
@@ -67,7 +67,7 @@ def calculate_maximum(numbers):
 
 
 def calculate_minimum(numbers):
-    """Find the minimum number without using built-in min()."""
+    # Find the minimum number without using built-in min().
     if len(numbers) == 0:
         return None
     min_num = numbers[0]
@@ -76,9 +76,8 @@ def calculate_minimum(numbers):
             min_num = num
     return min_num
 
-
+    # Main function to orchestrate the program.
 def main():
-    """Main function to orchestrate the program."""
     # Get number count from user
     while True:
         try:
