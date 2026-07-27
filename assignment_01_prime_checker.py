@@ -35,7 +35,7 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-def is_prime(n):
+def is_prime(n):  # function to check if a number is prime
     if n < 2:
         return False
 
@@ -50,8 +50,8 @@ print("!! PRIME NUMBER CHECKER !!")
 print("=" * 77)
 
 
-number = int(input("Enter a number to check: "))
-if is_prime(number):
+number = int(input("Enter a number to check: "))  # prompt user for input
+if is_prime(number):                              # check if the number is prime using the is_prime function
     print(f"{number} is a prime number.")
-else:
-    print(f"{number} is NOT a prime number.")
+else:                                            
+    print(f"{number} is NOT a prime number.")  # if the number is not prime, print that it is not a prime number 
