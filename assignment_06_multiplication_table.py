@@ -56,7 +56,7 @@
 # =============================================================================
 
 
-# """Prompt the user for a positive integer and validate the input."""
+# Prompt the user for a positive integer and validate the input.
 def get_positive_integer(prompt):
     try:
         value = int(input(prompt))
