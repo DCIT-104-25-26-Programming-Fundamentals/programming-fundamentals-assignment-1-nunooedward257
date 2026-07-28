@@ -94,14 +94,14 @@ def read_matrix():
 
     return matrix
 
-
+# Print a matrix in a neat, aligned grid format.
 def display_matrix(matrix):
     for row in matrix:
         for value in row:
             print(f"{value:>6}", end="")
         print()
 
-
+# Return the transpose of a matrix using nested loops.
 def transpose_matrix(matrix):
     rows = len(matrix)
     cols = len(matrix[0]) if rows > 0 else 0
@@ -115,7 +115,7 @@ def transpose_matrix(matrix):
 
     return transpose 
 
-
+# Return the element-wise sum of two matrices.
 def add_matrices(matrix_a, matrix_b):
     result = []
     for row_index in range(len(matrix_a)):
@@ -126,7 +126,7 @@ def add_matrices(matrix_a, matrix_b):
     return result
 
 
-
+# Return the product of two matrices using nested loops.
 def multiply_matrices(matrix_a, matrix_b):
     rows_a = len(matrix_a)
     cols_a = len(matrix_a[0]) if rows_a > 0 else 0
@@ -149,7 +149,7 @@ def multiply_matrices(matrix_a, matrix_b):
     return result
 
 
-
+# Perform Part A: transpose a matrix.
 def part_a_transpose():
     print("\nPart A — Transpose a Matrix")
     matrix = read_matrix()
@@ -162,7 +162,7 @@ def part_a_transpose():
     display_matrix(transposed)
 
 
-
+# Perform Part B: add two matrices.
 def part_b_addition():
     print("\nPart B — Add Two Matrices")
     print("Enter matrix A:")
