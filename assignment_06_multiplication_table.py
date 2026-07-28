@@ -56,6 +56,7 @@
 # =============================================================================
 
 
+# """Prompt the user for a positive integer and validate the input."""
 def get_positive_integer(prompt):
     try:
         value = int(input(prompt))
@@ -70,12 +71,14 @@ def get_positive_integer(prompt):
     return value
 
 
+# Print the multiplication table for one number from 1 to 12.
 def print_single_table(number):
     print(f"Multiplication Table for {number}:")
     for multiplier in range(1, 13):
         print(f"{number}  x  {multiplier:>2}  =  {number * multiplier}")
 
 
+# Print multiplication tables for every number from 1 to n.
 def print_tables_from_1_to_n(n):
     for number in range(1, n + 1):
         print_single_table(number)
