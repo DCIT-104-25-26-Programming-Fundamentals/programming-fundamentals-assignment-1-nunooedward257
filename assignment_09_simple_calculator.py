@@ -95,7 +95,7 @@ def modulus(x, y):
 def exponentiate(x, y):
     return x ** y
 
-
+# function to print the calculator menu
 def print_menu():
     print("=============================")
     print("     SIMPLE CALCULATOR")
@@ -108,7 +108,7 @@ def print_menu():
     print("6. Exponentiation")
     print("7. Quit")
 
-
+# function to get a valid number from the user with error handling
 def get_number(prompt):
     while True:
         value = input(prompt)
@@ -118,6 +118,7 @@ def get_number(prompt):
             print("Invalid number. Please enter a valid numeric value.")
 
 
+# function to handle the main loop of the calculator
 def main():
     while True:
         print_menu()
