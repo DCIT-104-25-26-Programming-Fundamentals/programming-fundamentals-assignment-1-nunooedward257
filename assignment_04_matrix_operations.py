@@ -60,3 +60,178 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+
+def read_matrix():
+    # Read an M x N matrix from the user.
+    while True:
+        try:
+            rows = int(input("Enter number of rows: "))
+            cols = int(input("Enter number of columns: "))
+            if rows <= 0 or cols <= 0:
+                print("Error: Rows and columns must be positive integers.")
+                continue
+            break
+        except ValueError:
+            print("Error: Please enter valid integers for rows and columns.")
+
+    matrix = []
+    for row_index in range(rows):
+        while True:
+            try:
+                row_values = input(f"Enter row {row_index + 1}: ").split()
+                if len(row_values) != cols:
+                    print(f"Error: Row {row_index + 1} must contain {cols} values.")
+                    continue
+
+                values = []
+                for value in row_values:
+                    values.append(int(value))
+
+                matrix.append(values)
+                break
+            except ValueError:
+                print("Error: Please enter only integers.")
+
+    return matrix
+
+
+def display_matrix(matrix):
+    for row in matrix:
+        for value in row:
+            print(f"{value:>6}", end="")
+        print()
+
+
+def transpose_matrix(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0]) if rows > 0 else 0
+
+    transpose = []
+    for col_index in range(cols):
+        new_row = []
+        for row_index in range(rows):
+            new_row.append(matrix[row_index][col_index])
+        transpose.append(new_row)
+
+    return transpose 
+
+
+def add_matrices(matrix_a, matrix_b):
+    result = []
+    for row_index in range(len(matrix_a)):
+        new_row = []
+        for col_index in range(len(matrix_a[0])):
+            new_row.append(matrix_a[row_index][col_index] + matrix_b[row_index][col_index])
+        result.append(new_row)
+    return result
+
+
+
+def multiply_matrices(matrix_a, matrix_b):
+    rows_a = len(matrix_a)
+    cols_a = len(matrix_a[0]) if rows_a > 0 else 0
+    rows_b = len(matrix_b)
+    cols_b = len(matrix_b[0]) if rows_b > 0 else 0
+
+    if cols_a != rows_b:
+        return None
+
+    result = []
+    for row_index in range(rows_a):
+        new_row = []
+        for col_index in range(cols_b):
+            total = 0
+            for inner_index in range(cols_a):
+                total += matrix_a[row_index][inner_index] * matrix_b[inner_index][col_index]
+            new_row.append(total)
+        result.append(new_row)
+
+    return result
+
+
+
+def part_a_transpose():
+    print("\nPart A — Transpose a Matrix")
+    matrix = read_matrix()
+
+    print("\nOriginal Matrix:")
+    display_matrix(matrix)
+
+    transposed = transpose_matrix(matrix)
+    print("\nTransposed Matrix:")
+    display_matrix(transposed)
+
+
+
+def part_b_addition():
+    print("\nPart B — Add Two Matrices")
+    print("Enter matrix A:")
+    matrix_a = read_matrix()
+    print("\nEnter matrix B:")
+    matrix_b = read_matrix()
+
+    if len(matrix_a) != len(matrix_b) or len(matrix_a[0]) != len(matrix_b[0]):
+        print("Error: Both matrices must have the same dimensions.")
+        return
+
+    print("\nMatrix A:")
+    display_matrix(matrix_a)
+    print("\nMatrix B:")
+    display_matrix(matrix_b)
+
+    result = add_matrices(matrix_a, matrix_b)
+    print("\nSum Matrix:")
+    display_matrix(result)
+
+
+# Perform Part C: multiply two matrices.
+def part_c_multiplication():
+    print("\nPart C — Multiply Two Matrices")
+    print("Enter matrix A:")
+    matrix_a = read_matrix()
+    print("\nEnter matrix B:")
+    matrix_b = read_matrix()
+
+    if len(matrix_a[0]) != len(matrix_b):
+        print("Error: The number of columns in matrix A must equal the number of rows in matrix B.")
+        return
+
+    print("\nMatrix A:")
+    display_matrix(matrix_a)
+    print("\nMatrix B:")
+    display_matrix(matrix_b)
+
+    result = multiply_matrices(matrix_a, matrix_b)
+    if result is None:
+        print("Error: Matrix multiplication is not possible with these dimensions.")
+    else:
+        print("\nProduct Matrix:")
+        display_matrix(result)
+
+
+def main():
+    while True:
+        print("\nMatrix Operations Menu")
+        print("1. Transpose a matrix")
+        print("2. Add two matrices")
+        print("3. Multiply two matrices")
+        print("4. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            part_a_transpose()
+        elif choice == "2":
+            part_b_addition()
+        elif choice == "3":
+            part_c_multiplication()
+        elif choice == "4":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
+
